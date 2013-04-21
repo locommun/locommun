@@ -1,5 +1,5 @@
 Install Guide (for Ubunbtu/Debian)
-=============
+==================================
 
 Prerequisites:
 -------------
@@ -21,7 +21,7 @@ It's recommended to use this version of ruby as default one:
 
 * MySQL (you need only the lib for the production environment gem)
 
-Installation
+Installation:
 ------------
 
 * Clone the locommun repo
@@ -42,7 +42,7 @@ Installation
 
 * Visit http://0.0.0.0:3000
 
-Checkout new code
+Checkout new code:
 -----------------
 Everytime you want to pull new code do:
 
