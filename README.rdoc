@@ -4,7 +4,7 @@
 == Prerequisites:
 
 
-* Ruby 1.9.3 
+=== Ruby 1.9.3 
 The recommended way to install Ruby is with RVM:
 
 Please refer to https://rvm.io/ for more Information.
@@ -19,8 +19,8 @@ After installing RVM you are able to install ruby with the following command:
 It's recommended to use this version of ruby as default one:
   rvm ruby-1.9.3 --default
 
-* MySQL (you need only the lib for the production environment gem)
-
+=== MySQL (you need only the lib for the production environment gem)
+  sudo apt-get install mysql-client libmysqlclient-dev
 == Installation:
 
 
