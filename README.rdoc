@@ -24,34 +24,34 @@ It's recommended to use this version of ruby as default one:
 == Installation:
 
 
-* Clone the locommun repo
+=== Clone the locommun repo
   git clone git@github.com:locommun/locommun.git
 
-* Install bundler
+=== Install bundler
   gem install bundler
 
-* Install the gems in the Gemfile with bundler 
+=== Install the gems in the Gemfile with bundler 
   bundle install
 
-* Create and migrate your database
+=== Create and migrate your database
   rake db:create
   rake db:migrate
 
-* Start the server
+=== Start the server
   rails s 
 
-* Visit http://0.0.0.0:3000
+=== Visit http://0.0.0.0:3000
 
 == Checkout new code:
 Everytime you want to pull new code do:
 
-* get the code
+=== get the code
   git pull origin master
 
-* install new gems
+=== install new gems
   bundle install
 
-* run db migrations
+=== run db migrations
   rake db:migrate
 
 ==Run Tests
