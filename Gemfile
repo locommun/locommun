@@ -25,6 +25,17 @@ group :development do
   gem 'capistrano-unicorn'
 end
 
+group :development, :test do
+  gem "rspec-rails", "~> 2.12"
+end
+
+group :test do
+  gem "shoulda-matchers"
+  gem 'factory_girl'
+  gem 'simplecov', :require => false
+  gem 'capybara'
+end
+
 # capistrano
 gem 'capistrano'
 
