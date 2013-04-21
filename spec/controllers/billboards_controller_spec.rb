@@ -39,6 +39,7 @@ describe BillboardsController do
     it "should be successful" do
         get :show, id: @billboard
         response.should be_success
+        controller.instance_variable_get(:@billboard).should == @billboard
     end
   end
 end

@@ -1,19 +1,2 @@
-Geocoder.configure do |config|
+Geocoder.configure(:timeout => 10, :units => :km )
 
-  # geocoding service (see below for supported options):
-  #config.lookup = :yandex
-
-  # to use an API key:
-  #config.api_key = "..."
-
-  # geocoding service request timeout, in seconds (default 3):
-  config.timeout = 10
-
-  # set default units to kilometers:
-  config.units = :km
-
-  # caching (see below for details):
-  #config.cache = Redis.new
-  #config.cache_prefix = "..."
-
-end
