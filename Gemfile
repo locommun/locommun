@@ -34,6 +34,7 @@ group :test do
   gem 'factory_girl'
   gem 'simplecov', :require => false
   gem 'capybara'
+  gem 'faker'
 end
 
 # capistrano
