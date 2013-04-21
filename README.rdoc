@@ -55,8 +55,19 @@ Everytime you want to pull new code do:
   rake db:migrate
 
 ==Run Tests
-Coming soon
+Travis Status: {<img src="https://travis-ci.org/locommun/locommun.png?branch=master" alt="Build Status" />}[https://travis-ci.org/locommun/locommun]
 
+Update your gems with bundler first (if you did the steps above it should be ok)
+===Prepare the Test DB
+  rake db:test:prepare
+
+===Call Rspec
+  rspec
+
+Now you should see the test log. The Code coverage can be found at coverage/index.html
+
+Sometimes you have to migrate your test db (db:test:prepare just sometimes ommits that)
+  RAILS_ENV=test rake db:migrate
 
 
 
