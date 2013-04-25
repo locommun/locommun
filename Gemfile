@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -23,6 +23,19 @@ end
 
 group :development do
   gem 'capistrano-unicorn'
+end
+
+group :development, :test do
+  gem "rspec-rails", "~> 2.12"
+end
+
+group :test do
+  gem "shoulda-matchers"
+  gem 'factory_girl'
+  gem 'simplecov', :require => false
+  gem 'capybara'
+  gem 'faker'
+  gem 'ZenTest'
 end
 
 # capistrano

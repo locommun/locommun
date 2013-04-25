@@ -1,1 +1,73 @@
-Prix
+= Install Guide (for Ubunbtu/Debian)
+
+
+== Prerequisites:
+
+
+=== Ruby 1.9.3 
+The recommended way to install Ruby is with RVM:
+
+Please refer to https://rvm.io/ for more Information.
+Follow this guide to install rvm: https://rvm.io/rvm/install/
+
+Dont forget to install the requirements for running rvm ruby. You can get a list of the ubuntu-packets needed with
+  rvm requirements
+
+After installing RVM you are able to install ruby with the following command:
+  rvm install ruby-1.9.3
+
+It's recommended to use this version of ruby as default one:
+  rvm ruby-1.9.3 --default
+
+=== MySQL (you need only the lib for the production environment gem)
+  sudo apt-get install mysql-client libmysqlclient-dev
+== Installation:
+
+
+=== Clone the locommun repo
+  git clone git@github.com:locommun/locommun.git
+
+=== Install bundler
+  gem install bundler
+
+=== Install the gems in the Gemfile with bundler 
+  bundle install
+
+=== Create and migrate your database
+  rake db:create
+  rake db:migrate
+
+=== Start the server
+  rails s 
+
+=== Visit http://0.0.0.0:3000
+
+== Checkout new code:
+Everytime you want to pull new code do:
+
+=== get the code
+  git pull origin master
+
+=== install new gems
+  bundle install
+
+=== run db migrations
+  rake db:migrate
+
+==Run Tests
+Travis Status: {<img src="https://travis-ci.org/locommun/locommun.png?branch=master" alt="Build Status" />}[https://travis-ci.org/locommun/locommun]
+
+Update your gems with bundler first (if you did the steps above it should be ok)
+===Prepare the Test DB
+  rake db:test:prepare
+
+===Call Rspec
+  rspec
+
+Now you should see the test log. The Code coverage can be found at coverage/index.html
+
+Sometimes you have to migrate your test db (db:test:prepare just sometimes ommits that)
+  RAILS_ENV=test rake db:migrate
+
+
+
