@@ -40,6 +40,7 @@ end
 
 # capistrano
 gem 'capistrano'
+gem 'rvm-capistrano'
 
 # Gmaps4Rails
 gem 'gmaps4rails'
