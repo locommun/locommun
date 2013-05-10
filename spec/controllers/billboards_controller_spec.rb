@@ -10,6 +10,7 @@ describe BillboardsController do
       expect(response.status).to eq(200)
     end
     
+    
     it "responds successfully with an HTTP 200 status code" do
       get :description
       expect(response).to be_success
