@@ -17,7 +17,7 @@ platforms :ruby do
   gem 'therubyracer'
   gem 'sqlite3'
   gem 'mysql2'
-  gem "unicorn", "~> 4.4.0"
+  gem  'passenger'
   gem "wkhtmltopdf-binary", "~> 0.9.9.1"
 end
 
@@ -40,6 +40,7 @@ end
 
 # capistrano
 gem 'capistrano'
+gem 'rvm-capistrano'
 
 # Gmaps4Rails
 gem 'gmaps4rails'
