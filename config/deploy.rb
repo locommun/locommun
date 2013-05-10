@@ -1,13 +1,14 @@
 # Load RVM's capistrano plugin.
 require "rvm/capistrano"
 
-set :rvm_ruby_string, '{{ruby-1.9.3-p392}}'
-#set :rvm_type, :user  # Don't use system-wide RVM
+set :rvm_path, "/usr/local/rvm/"
+set :rvm_type, :system  # Don't use system-wide RVM
+set :use_sudo, false
 
 set :user, "deploy"
 set :domain, "h2164486.stratoserver.net"
-set :application, "localmove"
-set :repository,  "git@github.com:locommun/locommun.git"
+set :application, "localmove.de"
+set :repository,  "git://github.com/locommun/locommun.git"
 set :deploy_to, "/var/www/vhosts/localmove.de/rails"
 
 set :scm, :git
