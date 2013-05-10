@@ -42,6 +42,9 @@ end
 gem 'capistrano'
 gem 'rvm-capistrano'
 
+#Blog
+gem "blogit"
+
 # Gmaps4Rails
 gem 'gmaps4rails'
 
@@ -71,9 +74,9 @@ gem 'bootstrap-will_paginate'
 
 #ActiveAdmin
 
-  gem 'activeadmin'
-  gem "meta_search",    '>= 1.1.0.pre'
-  gem 'less-rails' 
+gem 'rails_admin'
+  
+gem 'less-rails' 
 
 #SimpleForm
 gem 'simple_form'
@@ -95,15 +98,3 @@ gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'

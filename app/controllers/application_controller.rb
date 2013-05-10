@@ -82,4 +82,17 @@ class ApplicationController < ActionController::Base
     ['en', 'de']
   end
   
+  def current_admin
+    if current_user && current_user.admin?
+      current_user
+    else
+      nil
+    end
+  end
+
+  def authenticate_admin!
+    authenticate_user!
+    redirect_to main_app.root_path unless current_user.try(:admin?)
+  end  
+  
 end
