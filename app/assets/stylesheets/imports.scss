@@ -1,0 +1,53 @@
+
+// Colors
+
+
+$color_turqoise: #1abc9c;
+$color_green_see: #16a085;
+$color_emerald: #2ecc71;
+$color_nephritis: #27ae60;
+$color_peterriver: #3498db;
+$color_belize:#2980b9;
+$color_amethyst:#9b59b6;
+$color_wisteria:#8e44ad;
+$color_wetasphalt:#34495e;
+$color_midnightblue:#2c3e50;
+$color_sunflower:#f1c40f;
+$color_orange:#f39c12;
+$color_carrot:#e67e22;
+$color_pumpkin:#d35400;
+$color_alizarin:#e74c3c;
+$color_pomegranate:#c0392b;
+$color_clouds:#ecf0f1;
+$color_silver:#bdc3c7;
+$color_concrete:#95a5a6;
+$color_asbestos:#7f8c8d;
+
+$base:      $color_carrot;
+$firm:      lighten($color_carrot,30%);
+
+$gray:      $color_asbestos;
+$lightgray: $color_silver;
+$inverse:   #fff;
+
+$success:   $color_nephritis;
+$danger:    $color_alizarin;
+$warning:   $color_orange;
+$info:      $color_peterriver;
+
+// Font
+$base-font-family: 'Lato', sans-serif;
+$base-font-size:   14px;
+
+$btnPrimaryBackground: $color_carrot;
+$btnPrimaryBackgroundHighlight: $color_carrot;
+$linkColor: $color_wetasphalt;
+
+@import "bootstrap-without-forms";
+@import "formtastic-plus-bootstrap";
+@import "font-awesome";
+
+@import 'flat-ui/modules/footer'; // if you want the flat-ui footer
+@import "formtastic-plus-flatui";
+@import "formtastic_layouts";
+@import "navbar";
