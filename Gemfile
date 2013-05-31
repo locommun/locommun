@@ -6,23 +6,23 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 
-
-platforms :jruby do
-  gem 'jruby-openssl'
-  gem 'therubyrhino'
-  gem 'activerecord-jdbcsqlite3-adapter'
-end
-
 platforms :ruby do
   gem 'therubyracer'
   gem 'sqlite3'
-  gem 'mysql2'
-  gem  'passenger'
+  group :production do
+    gem 'mysql2'
+    gem  'passenger'
+  end
   gem "wkhtmltopdf-binary", "~> 0.9.9.1"
+  unless ENV["CI"]
+    gem 'debugger', :group => [:development, :test]
+  end
 end
 
 group :development do
   gem 'capistrano-unicorn'
+   gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development, :test do
@@ -48,26 +48,11 @@ gem "blogit"
 # Gmaps4Rails
 gem 'gmaps4rails'
 
+#geocoder
+gem 'geocoder'
+
 # Devise
 gem 'devise'
-
-# GeoCoding
-gem "geocoder"
-
-# QR Code
-gem "rqrcode"
-
-#PDF - requires wkhtmltopdf installed
-gem 'wicked_pdf'
-
-# Building Wizards
-gem 'wicked' , :git => "git://github.com/schneems/wicked.git"
-
-# Voting 
-gem 'thumbs_up'
-
-#MetaWhere
-#gem "meta_where"
 
 #Pagination
 gem 'bootstrap-will_paginate'
@@ -76,23 +61,21 @@ gem 'bootstrap-will_paginate'
 
 gem 'rails_admin'
   
-gem 'less-rails' 
+#Formtastic
+gem 'formtastic'
 
-#SimpleForm
-gem 'simple_form'
-
-
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
+  gem "font-awesome-rails"
+  gem "formtastic-plus-bootstrap"
+  gem "formtastic-plus-flatui"
+  gem "flatui-rails"
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  
-
   gem 'uglifier', '>= 1.0.3'
 end
+
+#Controller
+gem 'inherited_resources'
 
 gem 'jquery-rails'
 

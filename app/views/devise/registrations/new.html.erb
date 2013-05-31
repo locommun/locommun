@@ -2,19 +2,16 @@
 <div class="well">
 <h2><%= I18n.t("devise.registrations.new.title") %></h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="inputs">
+<%= semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "form-vertical"}) do |f| %>
+  <%= f.inputs do%>
   	<%= f.input :name, :required => true, :autofocus => true  , :label => I18n.t("devise.registrations.name")%>
     <%= f.input :email, :required => true  , :label => I18n.t("devise.registrations.email")%>
     <%= f.input :password, :required => true , :label => I18n.t("devise.registrations.password")%>
     <%= f.input :password_confirmation, :required => true , :label => I18n.t("devise.registrations.password_confirm")%>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit, I18n.t("devise.registrations.register") %>
-  </div>
+  <% end %>
+	<%= f.actions do%>
+  		<%= f.action :submit, :label => I18n.t("devise.registrations.register")  ,:class => "btn btn-primary"%>
+  	<%end%>
 <% end %>
 
 <%= render "links" %>

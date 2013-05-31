@@ -1,7 +1,7 @@
 #######################################################################################################
 ##############################################  Map Quest #############################################
 #######################################################################################################
-# http://www.mapquestapi.com/sdk/js/v6.0.0/poi.html
+# http://developer.mapquest.com/web/documentation/sdk/javascript/v7.0/api/MQA.Poi.html
 
 class @Gmaps4RailsMapquest extends Gmaps4Rails
 
@@ -132,3 +132,14 @@ class @Gmaps4RailsMapquest extends Gmaps4Rails
 
   removeFromMap: (object)->
     @serviceObject.removeShape object
+    
+  updateBoundsWithPolylines: ()->
+
+  updateBoundsWithPolygons: ()->
+
+  updateBoundsWithCircles: ()->
+    
+  extendMapBounds :->
+
+  adaptMapToBounds: ->
+    @fitBounds()

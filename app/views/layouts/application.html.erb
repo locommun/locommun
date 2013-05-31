@@ -19,17 +19,22 @@
       <div class="navbar-inner">
         <div class="container">
           
-          <a href="<%= url_for(root_path) %>">localmove.eu</a>
-          
+          <a href="<%= url_for(root_path) %>">localmove.de</a>
+         
           <ul class="nav pull-right">
+          	
           	<% if user_signed_in? %>
-				<li><%= link_to (raw ("<i  class=\"icon-home icon-white\"></i> "))+current_user.email , announcements_path %></li>
+				<li><%= link_to (raw ("<i  class=\"icon-home icon-white\"></i> "))+current_user.email , edit_registration_path(current_user) %></li>
 			 	<li><%= link_to I18n.t("common.sign_out"), destroy_user_session_path %></li>
 			 <% else %>
 			 	<li> <%= link_to (raw ("<i  class=\"icon-user icon-white\"></i> " + I18n.t("devise.sessions.login"))), new_user_session_path %></li>
 			 <% end %>
           </ul>
-         
+          
+	          <%= form_for :user_location ,:html  => { :class => "navbar-search pull-right", :method => :get} do |f|%>
+	          	<%= f.text_field :name, :class => "span2", :value => session[:target_city], :id => "locationsearch"%>
+	          <%end%>
+          
         </div>
       </div>
     </div>
@@ -51,26 +56,28 @@
 
 	    </div> <!-- /container -->
 
-<hr />
+	<hr />
 
-	<footer class="center-content">
+	<footer >
+		<div class="container">
+			<div class="row">
 			<%= yield :scripts %>
-    <a href="<%= url_for(description_billboards_path) %>"><%= I18n.t("common.faq") %></a> | 
-	<%= link_to I18n.t("common.credits"),"http://www.mi.fu-berlin.de/fb/impressum/index.html" %> |
-	<a href="<%= url_for(sources_billboards_path) %>"><%= I18n.t("common.sources") %></a> |
-	<a href="<%= url_for(contact_billboards_path) %>"><%= I18n.t("common.mail") %></a> <br/>
-	<% first=true %>
-	<% get_available_locales.each do |locale| %>
-		 <%= "|" unless first %> 
-			<%if params[:locale] == locale%>
-			 	<%= I18n.t("lang_name", :locale => locale) %>
-			<%else%>
-			 	<%= link_to I18n.t("lang_name", :locale => locale) , :locale => locale %>
-		 	<%end%>
-		 <% first = false%>
-	<%end%>
+   
+			<%= link_to I18n.t("common.credits"),"http://www.mi.fu-berlin.de/fb/impressum/index.html" %> |
+			
+			<% first=true %>
+			<% get_available_locales.each do |locale| %>
+				 <%= "|" unless first %> 
+					<%if params[:locale] == locale%>
+					 	<%= I18n.t("lang_name", :locale => locale) %>
+					<%else%>
+					 	<%= link_to I18n.t("lang_name", :locale => locale) , :locale => locale %>
+				 	<%end%>
+				 <% first = false%>
+			<%end%>
+			</div>
+	</div>
 	</footer>
-  <span style="height:10px;">&nbsp;</span>
 
 </body>
 </html>
