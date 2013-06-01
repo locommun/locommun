@@ -6,6 +6,7 @@ class ProjectsController < InheritedResources::Base
 
   respond_to :js, :only => :index
 
+
   def index
     letters = ('A'..'Z').to_a
     @json = collection.to_gmaps4rails do |obj, marker|

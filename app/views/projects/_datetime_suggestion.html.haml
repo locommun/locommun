@@ -1,0 +1,26 @@
+.billboard-controlls.well.break-word
+  %h4= I18n.t("announcement.datetime_suggestion.title")
+  %hr/
+  - if @project.date_time_suggestions.count == 0
+    = I18n.t("announcement.datetime_suggestion.no_suggestions")
+  - @project.date_time_suggestions.sort_by { |suggestion| suggestion.plusminus }.reverse.each do |suggestion|
+    .date-box
+      = I18n.l suggestion.datetime, :format =>'%d. %B %Y - %H:%M'
+      %br/
+      %div{:align => "right"}
+        - if @project.user == current_user
+          = link_to raw("<i class=\"icon-time icon-white\"></i> " + I18n.t("announcement.datetime_suggestion.fix")),                                                                                     |
+            pick_date_project_path(@project,{"date_time_suggestion_id" => suggestion.id}), :class => "btn btn-mini btn-primary", :title => I18n.t("announcement.datetime_suggestion.fix_hint") |
+        - disabled= current_user.voted_on? suggestion
+        %nobr
+          = link_to raw("<i class=\"icon-thumbs-up icon-white\"></i> "+ suggestion.votes_for.to_s),                                                                                                                                                                                                                                                  |
+            vote_date_project_path(@project,{"date_time_suggestion_id" => suggestion.id, "vote" => "up"}), :class => "btn btn-mini btn-success" + (disabled ? " disabled" : ""), :title => disabled ? (suggestion.votes_for.to_s+I18n.t("announcement.datetime_suggestion.persons_can")) : I18n.t("announcement.datetime_suggestion.time") |
+          -#
+          = link_to raw("<i class=\"icon-thumbs-down icon-white\"></i> "+ suggestion.votes_against.to_s),                                                                                                                                                                                                                                                 |
+            vote_date_project_path(@project,{"date_time_suggestion_id" => suggestion.id, "vote" => "down"}), :class => "btn btn-mini btn-danger" + (disabled ? " disabled" : ""), :title => disabled ? (suggestion.votes_for.to_s+I18n.t("announcement.datetime_suggestion.persons_cant")) : I18n.t("announcement.datetime_suggestion.no_time") |
+  %hr/
+  %span.control-label= I18n.t("announcement.datetime_suggestion.new" )
+  %br/
+  = simple_form_for :date_time_suggestion, :url => suggest_date_announcement_path do |f|
+    = f.input :datetime , :as => :datetime , :label => false , :datetime_separator => raw('<br/>')
+    = f.submit I18n.t("announcement.datetime_suggestion.suggest"), :class => "btn btn-primary"

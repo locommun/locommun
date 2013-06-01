@@ -76,6 +76,10 @@ gem 'placeholdit'
 gem "paperclip", ">= 3.0"
 
 
+# Voting
+gem 'thumbs_up'
+
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem "font-awesome-rails"
