@@ -2,6 +2,7 @@
 de:
   startpage:
     projects_near: "Projekte in der Nähe von:"
+    project_new: "Neues Projekt eintragen"
   project:
     organization: "Projekt Organisation"
     support: "Projekt Unterstützung"
