@@ -13,7 +13,19 @@
  *= require imports
  */
 
+div.per3 > div:nth-child(3n+1) {
+  clear: left;
+  margin-left: 0px;
+  min-height: 50px;
+}
 
+div.fixedMinHeight {
+	min-height: 150px;
+}
+
+div.centeredText {
+	text-align: center;
+}
 
 
 
