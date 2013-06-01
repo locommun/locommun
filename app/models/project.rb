@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments
+  has_many :date_time_suggestions
 
   has_attached_file :image, :styles => { :medium => "520x360>", :thumb => "260x180#" , :mini => "130x90#"}
 

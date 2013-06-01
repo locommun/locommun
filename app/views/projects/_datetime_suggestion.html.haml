@@ -21,6 +21,6 @@
   %hr/
   %span.control-label= I18n.t("announcement.datetime_suggestion.new" )
   %br/
-  = simple_form_for :date_time_suggestion, :url => suggest_date_announcement_path do |f|
+  = simple_form_for :date_time_suggestion, :url => suggest_date_project_path do |f|
     = f.input :datetime , :as => :datetime , :label => false , :datetime_separator => raw('<br/>')
     = f.submit I18n.t("announcement.datetime_suggestion.suggest"), :class => "btn btn-primary"

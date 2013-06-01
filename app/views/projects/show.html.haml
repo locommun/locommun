@@ -30,9 +30,9 @@
       -# organization tools
       %h3= t('project.organization')
       -if @project.datetime
-        =render '/projects/datetime'
-        -if user_signed_in?
-          =render '/projects/datetime_suggestion'
+        -#=render '/projects/datetime'
+      -if user_signed_in?
+        -#=render '/projects/datetime_suggestion'
 
       -# sponsoring, crowdfounding, other features
       %h3= t('project.support')
