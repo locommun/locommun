@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
-  
+
+
   before_filter :set_i18n_locale
- 
+
   def set_i18n_locale
     unless params[:locale]
         params[:locale] = extract_locale_from_accept_language_header
@@ -25,28 +25,15 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { :locale => I18n.locale }
   end
-  
+
   helper_method :get_available_locales
-  
+
   def get_available_locales
     ['en', 'de']
   end
-  
-  def current_admin
-    if current_user && current_user.admin?
-      current_user
-    else
-      nil
-    end
-  end
 
-  def authenticate_admin!
-    authenticate_user!
-    redirect_to main_app.root_path unless current_user.try(:admin?)
-  end  
-  
   before_filter :request_location
-  
+
   def request_location
     if params[:user_location] && !params[:user_location][:name].blank?
       session[:target_location]  = Geocoder.coordinates(params[:user_location][:name])
@@ -55,7 +42,7 @@ class ApplicationController < ActionController::Base
       session[:target_location] = [request.location.latitude,request.location.longitude]
       queryresult = Geocoder.search(session[:target_location])
       session[:target_city] = queryresult.first.city if queryresult && queryresult.first
-    end    
+    end
   end
-  
+
 end

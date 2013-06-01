@@ -1,13 +1,14 @@
 Locommun::Application.routes.draw do
 
   resources :projects
+  resources :comments
   resources :sponsor_finder
   devise_for :users
 
 
-  root :to => 'blogit/posts#index'
+  root :to => 'projects#index'
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-  mount Blogit::Engine => "/blog"
+
 
 end

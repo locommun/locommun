@@ -73,8 +73,38 @@
 
 
   }
-  
-  
+ .form-fit fieldset.inputs ol > li {
+      &.input {
+        width: 100% !important;
+        input, textarea, select, .input-xlarge, .input-xxlarge {
+          width: 100% !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+
+        input[type='checkbox'], input[type='radio'] {
+          width: auto !important;
+        }
+      }
+
+      &.stringish {
+        input, .input-xxlarge {
+          // changing box-sizing we have to correct height
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          height: 28px !important;
+        }
+
+      }
+
+      &.text {
+        textarea {
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+      }
+    }
+
   /*
  *  Fix the actions field
  *

@@ -1,10 +1,10 @@
-= semantic_form_for(@project.comments.build) do |f|
+= semantic_form_for(@project.comments.build, :html=> {:class => "form-fit"}) do |f|
   = f.inputs do
     - if !user_signed_in?
       = f.input :name, :required => true, :label => false, :placeholder => "Name"
     - else
       = f.input :name, :as => :hidden, :label => false, :input_html => { :value => current_user.name ,:readonly => true }
-    = f.input :text, :required => true , :label => false, :placeholder => "Kommentar schreiben"
+    = f.input :text, :required => true ,  :label => false, :placeholder => "Kommentar schreiben"
     = f.input :project_id, :as => :hidden
   = f.actions do
     = f.action :submit

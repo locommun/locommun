@@ -45,8 +45,6 @@ end
 gem 'capistrano'
 gem 'rvm-capistrano'
 
-#Blog
-gem "blogit"
 
 # Gmaps4Rails
 gem 'gmaps4rails'
