@@ -15,9 +15,9 @@
 //= require_tree .
 
 $(document).ready(function(){
- 
-   
-    
+
+
+
 	// Hide Map
 	$('#hide-map-button').click(function() {
 	  $('#hidden-map').hide();
@@ -25,7 +25,7 @@ $(document).ready(function(){
 	  $('#show-map-link').removeClass("visible-phone");
 	  $('#show-map-link').show();
 	});
-	
+
 	//Show Map
 	$('#show-map-button').click(function() {
 	  $('#hidden-map').show();

@@ -1,13 +1,24 @@
 .row
-  .span8
+  .span6
+    = placeholdit_image_tag "400x250", text: "Explaination img!"
+  .span6
+    %h2 Welcom Ipsum
+    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in ligula. Pellentesque aliquam quam vel dolor. Nunc adipiscing. Sed quam odio, tempus ac, aliquam molestie, varius ac, tellus. Vestibulum ut nulla aliquam risus rutrum interdum. Pellentesque lorem. Curabitur sit amet erat quis risus feugiat viverra. Pellentesque augue justo, sagittis et, lacinia at, venenatis non, arcu. Nunc nec libero. In cursus dictum risus. Etiam tristique nisl a nulla. Ut a orci.
+.row
+  .span12
+    #locationfinder
+      = form_for :user_location ,:html  => { :class => "formtastic form-inline", :method => :get} do |f|
+        %p
+          = t('startpage.projects_near')
+          = f.text_field :name, :value => session[:target_city], :id => "locationsearch"
+
+.row
+  .span6
     = render 'partial/medium_map'
-  .span4
-    - letters = ('A'..'Z').to_a
-    - @projects.each do |project|
-      .well
-        %h4
-          = image_tag 'http://www.google.com/intl/en_ALL/mapfiles/marker_green'+ letters.delete_at(0).to_s + '.png', :size => "16x16"
-          = link_to project.title, project
-        %p= truncate(project.description , :length => 50 ,:separator => ' ')
+  .span6#projectlist
+    = render 'project_list', :projects => collection
   .span12
     = link_to 'New Project', new_project_path
+
+= content_for :scripts do
+  = render 'dragging'
