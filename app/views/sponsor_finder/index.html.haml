@@ -1,0 +1,13 @@
+.alert.alert-info.centeredText
+  %strong= "Found #{pluralize(@sponsorsCount, 'address')}"
+.row-fluid.per3
+  - @sponsors.each do |sponsor|
+    .span4
+      .well.fixedMinHeight
+        %h4= sponsor.name
+        %address
+          %p= sponsor.vicinity
+          - if sponsor.url
+            %a{href: "#{sponsor.url}"}= sponsor.url
+          - else
+            %p= "no url available"

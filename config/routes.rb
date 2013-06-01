@@ -1,6 +1,7 @@
 Locommun::Application.routes.draw do
   
   resources :projects
+  resources :sponsor_finder
 
   devise_for :users
 
