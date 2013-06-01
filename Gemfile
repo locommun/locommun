@@ -45,8 +45,6 @@ end
 gem 'capistrano'
 gem 'rvm-capistrano'
 
-#Blog
-gem "blogit"
 
 # Gmaps4Rails
 gem 'gmaps4rails'
@@ -70,11 +68,17 @@ gem 'formtastic'
 #Haml
 gem 'haml'
 
+
+#placeholder
+gem 'placeholdit'
+
 # Upload
 gem "paperclip", ">= 3.0"
 
+
 # Voting
 gem 'thumbs_up'
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

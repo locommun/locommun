@@ -1,5 +1,9 @@
 
-project:
-  organization: "Projekt Organisation"
-  support: "Projekt Unterstützung"
-  under-construction: "Diese Funktion ist momentan in Entwicklung."
+de:
+  startpage:
+    projects_near: "Projekte in der Nähe von:"
+  project:
+    organization: "Projekt Organisation"
+    support: "Projekt Unterstützung"
+    under-construction: "Diese Funktion ist momentan in Entwicklung."
+

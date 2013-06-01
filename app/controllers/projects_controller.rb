@@ -4,6 +4,9 @@ class ProjectsController < InheritedResources::Base
   before_filter :map , :only => [:show,:edit,:update]
   before_filter :authenticate_user! , :except => [:show,:index]
 
+  respond_to :js, :only => :index
+
+
   def index
     letters = ('A'..'Z').to_a
     @json = collection.to_gmaps4rails do |obj, marker|
@@ -28,11 +31,14 @@ class ProjectsController < InheritedResources::Base
   end
 
   def collection
-    if session[:target_location]
+    if params[:dragged_location]
+      @projects ||= Project.near(params[:dragged_location],params[:dragged_radius], :units => :km).limit(26)
+    elsif session[:target_location]
       @projects ||= Project.near(session[:target_location],7, :units => :km).limit(26)
     else
       @projects ||= Project.limit(12)
     end
 
   end
+
 end

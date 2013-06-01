@@ -22,8 +22,7 @@
             - else
               %li
                 = link_to (raw ("<i  class=\"icon-user icon-white\"></i> " + I18n.t("devise.sessions.login"))), new_user_session_path
-          = form_for :user_location ,:html  => { :class => "navbar-search pull-right", :method => :get} do |f|
-            = f.text_field :name, :class => "span2", :value => session[:target_city], :id => "locationsearch"
+
     #main-container.container
       - flash.each do |type, msg|
         .row

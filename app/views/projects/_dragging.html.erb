@@ -1,0 +1,16 @@
+<script type="text/javascript" charset="utf-8">
+Gmaps.map.callback = function() {
+    google.maps.event.addListener(Gmaps.map.serviceObject, 'dragend', function(event) {
+    center = Gmaps.map.serviceObject.getCenter();
+    edge= Gmaps.map.serviceObject.getBounds().getSouthWest();
+	viewdistance = google.maps.geometry.spherical.computeDistanceBetween(center, edge);
+	$.ajax({
+
+		url: "<%= projects_path()%>",
+		dataType: "script",
+		data: { dragged_location: [center.lat(),center.lng()] , dragged_radius: viewdistance/1000}
+		});
+    });
+    }
+</script>
+

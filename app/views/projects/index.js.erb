@@ -1,0 +1,3 @@
+$("#projectlist").html("<%= escape_javascript(render( 'project_list', :projects => collection)).html_safe %>");
+Gmaps.map.replaceMarkers(<%= @json.html_safe %>);
+
