@@ -19,13 +19,23 @@
     %hr
     -#project chat
     .span4
-      -@project.comments.each do |comment|
+
+      = semantic_form_for(@project.comments.build, :url => project_comments_path(@project), :html=> {:class => "form-fit"}) do |f|
+        = f.inputs do
+          - if !user_signed_in?
+            = f.input :name, :required => true, :label => false, :placeholder => "Name"
+          - else
+            = f.input :name, :as => :hidden, :label => false, :input_html => { :value => current_user.name ,:readonly => true }
+          = f.input :text, :required => true ,  :label => false, :placeholder => "Kommentar schreiben"
+        = f.actions do
+          = f.action :submit
+
+      -@project.comments.order("created_at DESC").each do |comment|
         .alert.alert-info
+          = comment.created_at
           -if comment.name
             %b= comment.name + ": "
           = comment.text
-      .well
-        = render 'comments_form'
     .span6
       -# organization tools
       %h3= t('project.organization')
@@ -36,4 +46,4 @@
 
       -# sponsoring, crowdfounding, other features
       %h3= t('project.support')
-      %p= t('common.under-construction')
+      %p= t('project.under-construction')

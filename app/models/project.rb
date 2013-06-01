@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
   attr_accessible :description, :gmaps, :latitude, :longitude, :title, :image
 
   belongs_to :user
-  has_many :comments
+  has_many :comments, :dependent => :destroy
   has_many :date_time_suggestions
 
   has_attached_file :image, :styles => { :medium => "520x360>", :thumb => "260x180#" , :mini => "130x90#"}

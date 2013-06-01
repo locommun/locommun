@@ -2,6 +2,8 @@ Locommun::Application.routes.draw do
 
 
   resources :projects do
+    resources :comments, :except => [:new,:edit]
+
     post 'suggest_date', :on => :member
     get 'vote_date' , :on => :member
     get 'pick_date' , :on => :member
