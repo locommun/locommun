@@ -70,8 +70,13 @@ gem 'formtastic'
 #Haml
 gem 'haml'
 
+
 #placeholder
 gem 'placeholdit'
+
+# Upload
+gem "paperclip", ">= 3.0"
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -90,3 +95,7 @@ gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
+
+
+#Google Places API
+gem 'google_places'

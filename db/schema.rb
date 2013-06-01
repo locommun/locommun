@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130531113958) do
+ActiveRecord::Schema.define(:version => 20130601111817) do
 
   create_table "blog_comments", :force => true do |t|
     t.string   "name",       :null => false
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(:version => 20130531113958) do
 
   add_index "blog_posts", ["blogger_type", "blogger_id"], :name => "index_blog_posts_on_blogger_type_and_blogger_id"
 
+  create_table "comments", :force => true do |t|
+    t.string   "text"
+    t.string   "name"
+    t.integer  "project_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "projects", :force => true do |t|
     t.string   "title"
     t.text     "description"
@@ -45,8 +53,12 @@ ActiveRecord::Schema.define(:version => 20130531113958) do
     t.float    "longitude"
     t.boolean  "gmaps"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
