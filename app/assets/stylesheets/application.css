@@ -28,7 +28,7 @@ div.centeredText {
 }
 
 div.project_item {
-	min-height:130px;
+	margin-bottom: 20px;
 }
 
 span.projects_near {

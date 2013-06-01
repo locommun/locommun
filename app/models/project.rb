@@ -5,7 +5,7 @@ class Project < ActiveRecord::Base
   belongs_to :user
   has_many :comments
 
-  has_attached_file :image, :styles => { :medium => "520x360>", :thumb => "260x180#" , :mini => "130x90#"}
+  has_attached_file :image, :styles => { :medium => "520x360>", :thumb => "260x180#" , :mini => "130x90#"},:default_url => "missing.png"
 
   validates :title, :length => {:minimum => 3, :maximum => 30}
   validates_numericality_of :latitude, {:minimum => 0, :maximum => 90}
