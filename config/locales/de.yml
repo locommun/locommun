@@ -1,6 +1,11 @@
 de:
   lang_name: "Deutsch"
   common:
+
+    project-organization: "Projekt Organisation"
+    project-support: "Projekt Unterstützung"
+    under-construction: "Diese Funktion ist momentan in Entwicklung."
+
     community: "Gemeinschaft"
     home: "Zur Startseite"
     more: 'mehr'
@@ -29,7 +34,7 @@ de:
       country: "Land"
       where: "Wo"
       around: "Umkreis (km):"
-      collection: 
+      collection:
         germany: "Deutschland"
     choose:
       name: "Name"
@@ -46,7 +51,7 @@ de:
     activate: "Gemeinschaft beitreten"
     search_godfather: "Pate suchen"
     not_activated: "Du bist dieser Gemeinschaft noch nicht beigetreten."
-    how_to: 
+    how_to:
       activate_1 : "Um dieser Gemeinschaft beizutreten musst du zum Aushang der Gemeinschaft gehen und dort den QR-Code einscannen oder den dort ausgehängten Code abschreiben und unter Gemeinschaft beitreten eingeben:"
       find: "Du findest den Aushang mit Hilfe der Karte und folgender Wegbeschreibung:"
       faq_1: "Mehr dazu findest du in den "
@@ -128,7 +133,7 @@ de:
     local: "Nur lokal?"
     local_text: "Das wäre ja langweilig. Natürlich ist es auch möglich, sich zwischen verschiedenen Kiezen, in verschiedenen Städten oder Ländern zu vernetzen. Sucht euch einfach einen Paten vor Ort und schon könnt ihr auch dort Aktivitäten unternehmen. Zum Beispiel vor dem nächsten Urlaub einfach mal vor Ort fragen, was so läuft. Oder umgekehrt: übernehmt eine Patenschaft für jemanden, der neu in der Stadt ist!"
     beta: "Beta"
-    beta_text_1: "Locommun befindet sich noch in der Beta-Phase. Das bedeutet, dass du dir gerade eine erste Vorabversion ansiehst. Wir haben aber noch viele Ideen, um Locommun noch besser zu machen. Deshalb schrauben wir im Hintergrund fleißig weiter. Wenn du uns beim Arbeiten zuschauen willst, schau' mal auf " 
+    beta_text_1: "Locommun befindet sich noch in der Beta-Phase. Das bedeutet, dass du dir gerade eine erste Vorabversion ansiehst. Wir haben aber noch viele Ideen, um Locommun noch besser zu machen. Deshalb schrauben wir im Hintergrund fleißig weiter. Wenn du uns beim Arbeiten zuschauen willst, schau' mal auf "
     beta_text_2:  "vorbei. Wir hoffen, dass dir Locommun schon jetzt gefällt und du bald wieder vorbeikommst."
     github: "GitHub"
     godfather: "Patenschaft"
@@ -194,7 +199,7 @@ de:
     q26: "Wie suche ich einen Paten ?"
     a26: "Bei Locommun kannst du einen Paten über locommun.eu suchen. Suche dir zuerst eine Gemeinschaft aus, bei welcher du nach einem Paten suchen willst (siehe Gemeinschaft suchen). Auf der Gemeinschafts-Seite kannst du über -Pate suchen- dich kurz vortsellen und somit ein Patengesuch auf die Gemeinschaft stellen."
     q27: "Wie werde ich Pate ?"
-    a27: "Um Pate zu werden, musst du einer Gemeinschaft beigetreten sein. Auf der Gemeinschafts-Seite siehst du dann aktuelle Paten-Gesuche, welche du annehmen kannst."  
+    a27: "Um Pate zu werden, musst du einer Gemeinschaft beigetreten sein. Auf der Gemeinschafts-Seite siehst du dann aktuelle Paten-Gesuche, welche du annehmen kannst."
   flyer:
     activity:
       link: "Link zu dieser Aktivität"
@@ -202,8 +207,8 @@ de:
       scan: "Oder scanne einfach den QR-Code mit deinem Smartphone"
       activate: "Um dieser Gemeinschaft beizutreten gebe folgenden Beitrittscode auf locommun.eu ein"
   contact:
-    mail: "Kontakt"  
-    feedback: "Wir freuen uns jederzeit über dein Feedback. " 
+    mail: "Kontakt"
+    feedback: "Wir freuen uns jederzeit über dein Feedback. "
     feedback_text: "Schreibe uns deine Anmerkungen, Ideen, usw. auf "
   index:
     do_something_local: "Mach mal was Lokales! "
@@ -281,16 +286,16 @@ de:
         title: "Benutzerprofil bearbeiten"
         password:
           hint: "leer lassen wenn es nicht geändert werden soll!"
-          current_hint: "aktuelles Passwort zur Bestätigung eingeben"  
+          current_hint: "aktuelles Passwort zur Bestätigung eingeben"
           label: "Neues Passwort"
-          current_label: "Altes Passwort" 
+          current_label: "Altes Passwort"
           confirmation_label: "Neues Passwort bestätigen"
           change: "Passwort ändern"
         change: "Ändern"
       new:
         title: "Registrieren"
     failure:
-      user: 
+      user:
         not_found_in_database: "Diesen Benutzer gibt es nicht."
     confirmations:
       resend: "Bestätigungsemail erneut senden"
@@ -331,7 +336,7 @@ de:
       current_password: "Bisheriges Passwort angeben (wir benötigen Ihr bisheriges Passwort um die Änderungen zu bestätigen)"
       cancel_account: "Benutzerkonto löschen"
       cancel_account_confirm: "Sind Sie sicher?"
-      
+
   active_record:
     error:
       header_message: ["Konnte das {{object_name}} Objekt nicht speichern: 1 Fehler.", "Konnte das {{object_name}} Objekt nicht speichern: {{count}} Fehler."]
@@ -367,7 +372,7 @@ de:
     - Fr
     - Sa
     abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mär
@@ -393,7 +398,7 @@ de:
       long: ! '%e. %B %Y'
       short: ! '%e. %b'
     month_names:
-    - 
+    -
     - Januar
     - Februar
     - März

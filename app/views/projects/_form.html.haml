@@ -2,6 +2,8 @@
   = f.inputs do
     = f.input :title
     = f.input :description
+    = f.file_field :image
+
     = render 'partial/medium_map'
     - content_for :scripts do
       %script{:charset => "utf-8", :type => "text/javascript"}
@@ -18,7 +20,7 @@
         function updateFormLocation(latLng) {
         $('#billboard_latitude').val(latLng.lat());
         $('#billboard_longitude').val(latLng.lng());
-        
+
         }
         \// Add a marker with an open infowindow
         function placeMarker(latLng) {
@@ -31,7 +33,7 @@
         \//Gmaps.map.replaceMarkers(markersArray)
         \// Set and open infowindow
         var infowindow = new google.maps.InfoWindow({
-        
+
         });
         infowindow.open(Gmaps.map.serviceObject,marker);
         \// Listen to drag & drop
