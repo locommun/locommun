@@ -1,0 +1,8 @@
+%h2= I18n.t("devise.confirmations.resend")
+= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
+  = f.error_notification
+  .inputs
+    = f.input :email, :required => true , :label => I18n.t("devise.registrations.email")
+  .actions
+    = f.button :submit, I18n.t("devise.confirmations.resend")
+= render "links"

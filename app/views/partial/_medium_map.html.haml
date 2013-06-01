@@ -1,0 +1,18 @@
+- options = { }
+- if session[:target_location]
+  - options["center_latitude"] = session[:target_location].first
+  - options["center_longitude"]= session[:target_location].last
+  - options["zoom"] = 12
+  - options["minZoom"] = 12
+  - options["auto_adjust"]=false
+  - options["draggable"]=false
+- else
+  - options["center_latitude"] = 51.165691 #germany
+  - options["center_longitude"]= 10.451526 #germany
+  - options["zoom"] = 5
+  - options["auto_adjust"]=false
+  - options["draggable"]=false
+= gmaps({                                                                                     |
+  "map_options" => options,                                                                   |
+  "markers" => {"data" => @json,:options => {"randomize" => true,"max_random_distance" => 5}} |
+  })                                                                                          |

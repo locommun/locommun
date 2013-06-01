@@ -23,6 +23,9 @@ group :development do
   gem 'capistrano-unicorn'
    gem 'better_errors'
   gem 'binding_of_caller'
+    # HAML Conversion tools
+  gem "erb2haml"
+  gem "html2haml"
 end
 
 group :development, :test do
@@ -60,9 +63,12 @@ gem 'bootstrap-will_paginate'
 #ActiveAdmin
 
 gem 'rails_admin'
-  
+
 #Formtastic
 gem 'formtastic'
+
+#Haml
+gem 'haml'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

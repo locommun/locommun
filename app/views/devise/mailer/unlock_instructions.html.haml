@@ -1,0 +1,5 @@
+%p
+  Hallo #{@resource.email}!
+%p= I18n.t("devise.mailer.unlock_instructions.locked")
+%p= I18n.t("devise.mailer.unlock_instructions.link")
+%p= link_to I18n.t("devise.mailer.unlock_instructions.unlock"), unlock_url(@resource, :unlock_token => @resource.unlock_token)

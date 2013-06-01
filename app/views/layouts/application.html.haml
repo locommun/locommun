@@ -1,0 +1,50 @@
+!!!
+%html
+  %head
+    %title Locommun.eu
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    = stylesheet_link_tag    "application", :media => "all"
+    = stylesheet_link_tag 'gmaps4rails'
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a{:href => url_for(root_path)} localmove.de
+          %ul.nav.pull-right
+            - if user_signed_in?
+              %li= link_to (raw ("<i  class=\"icon-home icon-white\"></i> "))+current_user.email , edit_registration_path(current_user)
+              %li= link_to I18n.t("common.sign_out"), destroy_user_session_path
+            - else
+              %li
+                = link_to (raw ("<i  class=\"icon-user icon-white\"></i> " + I18n.t("devise.sessions.login"))), new_user_session_path
+          = form_for :user_location ,:html  => { :class => "navbar-search pull-right", :method => :get} do |f|
+            = f.text_field :name, :class => "span2", :value => session[:target_city], :id => "locationsearch"
+    #main-container.container
+      - flash.each do |type, msg|
+        .row
+          .span12
+            %a.close{"data-dismiss" => "alert"} ×
+            %p{:class => "alert alert-#{bootstrap_notice_mapper(type)}"}
+              = msg
+      = yield
+    / /container
+    %hr/
+    %footer
+      .container
+        .row
+          = yield :scripts
+          = link_to I18n.t("common.credits"),"http://www.mi.fu-berlin.de/fb/impressum/index.html"
+          |
+          - first=true
+          - get_available_locales.each do |locale|
+            = "|" unless first
+            - if params[:locale] == locale
+              = I18n.t("lang_name", :locale => locale)
+            - else
+              = link_to I18n.t("lang_name", :locale => locale) , :locale => locale
+            - first = false

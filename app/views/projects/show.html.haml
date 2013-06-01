@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %b Title:
+  = @project.title
+%p
+  %b Description:
+  = @project.description
+%p
+  %b Latitude:
+  = @project.latitude
+%p
+  %b Logitude:
+  = @project.longitude
+%p
+  %b Gmaps:
+  = @project.gmaps
+= link_to 'Edit', edit_project_path(@project)
+|
+\#{link_to 'Back', projects_path}

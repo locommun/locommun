@@ -1,0 +1,23 @@
+.row
+  .span6
+    .well.fixed-login-size
+      %h2= I18n.t("devise.sessions.login")
+      = semantic_form_for(resource, :as => resource_name, :url => session_path(resource_name) , :html => {:class => "form-vertical"}) do |f|
+        = f.inputs do
+          = f.input :email, :required => false ,:label => I18n.t("devise.registrations.email")
+          = f.input :password, :required => false ,:label => I18n.t("devise.registrations.password")
+          = f.input :remember_me,  :label => I18n.t("devise.sessions.remember_me") ,:wrapper => :checkbox, :as => :boolean if devise_mapping.rememberable?
+        = f.actions do
+          = f.action :submit, :label => I18n.t("devise.sessions.login")  ,:class => "btn btn-primary"
+      = render "links"
+  .span6
+    .well.fixed-login-size
+      %h2= I18n.t("devise.registrations.register")
+      = semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "form-vertical"}) do |f|
+        = f.inputs do
+          = f.input :name, :required => true, :autofocus => true  , :label => I18n.t("devise.registrations.name")
+          = f.input :email, :required => true  , :label => I18n.t("devise.registrations.email")
+          = f.input :password, :required => true , :label => I18n.t("devise.registrations.password")
+          = f.input :password_confirmation, :required => true , :label => I18n.t("devise.registrations.password_confirm")
+        = f.actions do
+          = f.action :submit, :label => I18n.t("devise.registrations.register")  ,:class => "btn btn-primary"

@@ -1,0 +1,8 @@
+%h2= I18n.t("devise.unlocks.resend_unlock_instructions")
+= simple_form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f|
+  = f.error_notification
+  .inputs
+    = f.input :email, :required => true, :label => I18n.t("devise.registrations.email")
+  .actions
+    = f.button :submit, I18n.t("devise.unlocks.resend_unlock_instructions")
+= render "links"
