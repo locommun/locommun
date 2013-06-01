@@ -27,8 +27,12 @@ div.centeredText {
 	text-align: center;
 }
 
+div.project_item {
+	min-height:130px;
+}
 
+span.projects_near {
+	font-size: 14pt;
+}
 
-
-	
 

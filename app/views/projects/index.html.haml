@@ -8,17 +8,17 @@
   .span12
     #locationfinder
       = form_for :user_location ,:html  => { :class => "formtastic form-inline", :method => :get} do |f|
-        %p
-          = t('startpage.projects_near')
+        .well
+          %span.projects_near
+            = t('startpage.projects_near')
           = f.text_field :name, :value => session[:target_city], :id => "locationsearch"
-
+          = link_to t('startpage.project_new') , new_project_path, :class => "btn pull-right"
 .row
   .span6
     = render 'partial/medium_map'
-  .span6#projectlist
+  #projectlist
     = render 'project_list', :projects => collection
-  .span12
-    = link_to 'New Project', new_project_path
+
 
 = content_for :scripts do
   = render 'dragging'
