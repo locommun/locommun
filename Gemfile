@@ -70,6 +70,9 @@ gem 'formtastic'
 #Haml
 gem 'haml'
 
+# Upload
+gem "paperclip", ">= 3.0"
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem "font-awesome-rails"
