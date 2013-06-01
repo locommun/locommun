@@ -1,6 +1,6 @@
 <script type="text/javascript" charset="utf-8">
 Gmaps.map.callback = function() {
-    google.maps.event.addListener(Gmaps.map.serviceObject, 'dragend', function(event) {
+    google.maps.event.addListener(Gmaps.map.serviceObject, 'idle', function(event) {
     center = Gmaps.map.serviceObject.getCenter();
     edge= Gmaps.map.serviceObject.getBounds().getSouthWest();
 	viewdistance = google.maps.geometry.spherical.computeDistanceBetween(center, edge);

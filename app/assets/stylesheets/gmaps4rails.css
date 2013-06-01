@@ -30,6 +30,10 @@
   max-width: none;
 }
 
+#minimap img {
+  max-width: none;
+}
+
 #minimap {
 	width:100%;
 	height:200px;
