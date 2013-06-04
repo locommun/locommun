@@ -47,7 +47,7 @@
       -# sponsoring, crowdfounding, other features
       %h3= t('project.support')
 
-      %p= t('project.under-construction')
+      -# %p= t('project.under-construction')
       
       = form_for :sponsor_finder, :url => sponsor_finder_index_path, :html  => { :class => "formtastic form-inline", :method => :get} do |f|
         .well
@@ -57,6 +57,7 @@
           = f.text_field :radius, id: "radius", name: "sponsor_finder_radius"
           = f.hidden_field :lat, value: @project.latitude, id: "lat"
           = f.hidden_field :lng, value: @project.longitude, id: "lng"
+          = f.hidden_field :project_id, value: @project.id, id: "project_id"
           = f.submit :class => "btn pull-right"
           -# = link_to t('find_sponsors'), sponsor_finder_index_path(:lat => @project.latitude, :lng => @project.longitude), :class => "btn pull-right"
 

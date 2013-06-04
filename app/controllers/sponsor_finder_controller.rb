@@ -1,6 +1,7 @@
 class SponsorFinderController < ApplicationController
   def index
     sp = params[:sponsor_finder]
+    @project_id = sp["project_id"]
     @sponsors = findSponsors(sp["lat"], sp["lng"], sp["radius"])
     @sponsorsCount = @sponsors.count
   end
