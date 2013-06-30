@@ -14,7 +14,8 @@
     .navbar.navbar-inverse.navbar-fixed-top
       .navbar-inner
         .container
-          %a{:href => url_for(root_path)} localmove.de
+          %i.logolocalmove
+          %a.brand{:href => url_for(root_path)} localmove.de
           %ul.nav.pull-right
             - if user_signed_in?
               %li= link_to (raw ("<i  class=\"icon-home icon-white\"></i> "))+current_user.email , edit_registration_path(current_user)
@@ -39,11 +40,4 @@
           = yield :scripts
           = link_to I18n.t("common.credits"),"http://www.mi.fu-berlin.de/fb/impressum/index.html"
           |
-          - first=true
-          - get_available_locales.each do |locale|
-            = "|" unless first
-            - if params[:locale] == locale
-              = I18n.t("lang_name", :locale => locale)
-            - else
-              = link_to I18n.t("lang_name", :locale => locale) , :locale => locale
-            - first = false
+          

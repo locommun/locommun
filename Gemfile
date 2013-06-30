@@ -45,7 +45,7 @@ end
 gem 'capistrano'
 gem 'rvm-capistrano'
 
-
+gem 'acts_as_votable'
 # Gmaps4Rails
 gem 'gmaps4rails'
 

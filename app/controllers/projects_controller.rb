@@ -15,6 +15,11 @@ class ProjectsController < InheritedResources::Base
     end
     index!
   end
+  
+  def show
+    @project = Project.find params[:id]
+    show!
+  end
 
   private
 

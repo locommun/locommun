@@ -1,14 +1,19 @@
-= link_to 'Back', project_path(:id => @project_id)
+
 .alert.alert-info.centeredText
-  %strong= "Found #{pluralize(@sponsorsCount, 'address')}"
-.row-fluid.per3
-  - @sponsors.each do |sponsor|
-    .span4
-      .well.fixedMinHeight
-        %h4= sponsor.name
-        %address
-          %p= sponsor.vicinity
-          - if sponsor.url
-            %a{href: "#{sponsor.url}"}= sponsor.url
-          - else
-            %p= "no url available"
+  %strong= "#{@sponsorsCount} mögliche Sponsoren gefunden:"
+= semantic_form_for :sponsor do |f|
+  .row-fluid.per3
+    - @sponsors.each do |sponsor|
+      .span4
+        .well.fixedMinHeight
+          %h4= sponsor.name
+          %address
+            %p= sponsor.vicinity
+            - if sponsor.url
+              %a{href: "#{sponsor.url}"}= sponsor.url
+          -#= check_box :sponsor,:select_this
+          -#Auswählen
+          = f.inputs do
+            = f.input :select, :as => :boolean, :label => "Auswählen"
+= link_to 'Ausgewählte Sponsoren kontaktieren' , project_path(:id => @project_id), :class => "btn"                  
+= link_to 'Zurück', project_path(:id => @project_id), :class => "btn"        

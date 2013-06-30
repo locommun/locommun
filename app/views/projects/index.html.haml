@@ -1,9 +1,28 @@
 .row
   .span6
-    = placeholdit_image_tag "400x250", text: "Explaination img!"
+    = image_tag "description.png"
   .span6
-    %h2 Welcom Ipsum
-    %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at ante. Mauris eleifend, quam a vulputate dictum, massa quam dapibus leo, eget vulputate orci purus ut lorem. In fringilla mi in ligula. Pellentesque aliquam quam vel dolor. Nunc adipiscing. Sed quam odio, tempus ac, aliquam molestie, varius ac, tellus. Vestibulum ut nulla aliquam risus rutrum interdum. Pellentesque lorem. Curabitur sit amet erat quis risus feugiat viverra. Pellentesque augue justo, sagittis et, lacinia at, venenatis non, arcu. Nunc nec libero. In cursus dictum risus. Etiam tristique nisl a nulla. Ut a orci.
+    %h3 Willkommen bei Localmove.de
+    %p 
+      Localmove.de ist eine Plattform die 
+      %b lokale Initiativen und Projekte 
+      dabei unterstützt Geld zu sammeln, Unterstützer und Sponsoren zu finden
+      und sich zu organisieren.
+    %h5 
+      Wie kann Localmove meinem Projekt helfen?
+    %p 
+      Einfach 
+      = link_to "ein neues Projekt eintragen" , new_project_path
+      und loslegen.
+    %h5 
+      Was kann ich danach tun?
+    %ul 
+      %li
+        Du kannst über Crowd-Funding Geld zur Umsetzung deines Projektes oder deiner lokalen Initiative sammeln.
+      %li
+        Du kannst dein Projekt über die eingebauten Organisationshilfen organisieren.
+      %li 
+        Du kannst mit Localmove.de lokale Sponsoren finden und benachrichtigen.
 .row
   .span12
     #locationfinder

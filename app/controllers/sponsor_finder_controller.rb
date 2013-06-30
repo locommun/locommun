@@ -2,7 +2,8 @@ class SponsorFinderController < ApplicationController
   def index
     sp = params[:sponsor_finder]
     @project_id = sp["project_id"]
-    @sponsors = findSponsors(sp["lat"], sp["lng"], sp["radius"])
+    @project = Project.find @project_id
+    @sponsors = findSponsors(@project.latitude, @project.longitude, sp["radius"])
     @sponsorsCount = @sponsors.count
   end
   
@@ -15,7 +16,7 @@ class SponsorFinderController < ApplicationController
       client = GooglePlaces::Client.new('AIzaSyCRZSa5rUrONbmP9e_tuLIVQ8whPO3sFMc')
       lat = alat #'52.4578897'
       lng = alng #'13.2966434'
-      radius = aradius #"5000" #in meters
+      radius = (aradius.to_i*1000).to_s #"5000" #in meters
       types = PLACES_TYPES
       sponsors = getPlaces(client, lat, lng, radius, types)
   end

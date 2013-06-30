@@ -35,4 +35,19 @@ span.projects_near {
 	font-size: 14pt;
 }
 
+option,select {
+	color:black !important;
+}
 
+i.logolocalmove {
+	display: inline-block;
+	position: relative;
+	width:55px;
+	height:55px;
+	float:left;
+	background-image: url(windmill_small.png);
+	background-repeat:no-repeat;
+}
+.navbar-inner {
+	background: #cc5700 !important;
+}

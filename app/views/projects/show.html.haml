@@ -1,13 +1,17 @@
 
 .row
-
   -# project overview
   .span7
-    = link_to 'Edit', edit_project_path(@project)
-    |
-    = link_to 'Back', projects_path
-    %h3= @project.title
-    %p= @project.description
+    .well
+      %h3= @project.title
+      %p= nl2br(@project.description).html_safe
+      
+      .progress.progress-striped{:style => "height: 60px;"}
+        .bar{:style => "width:52%; "}
+      = link_to 'Geld spenden', project_path(@project), :class => "btn pull-right"  
+      %h5 
+        421 € von 800 € bereits gesammelt.
+   
     = render 'partial/mini_map'
   .span1
 
@@ -17,47 +21,70 @@
 
   .span12
     %hr
-    -#project chat
-    .span4
-
-      = semantic_form_for(@project.comments.build, :url => project_comments_path(@project), :html=> {:class => "form-fit"}) do |f|
-        = f.inputs do
-          - if !user_signed_in?
-            = f.input :name, :required => true, :label => false, :placeholder => "Name"
-          - else
-            = f.input :name, :as => :hidden, :label => false, :input_html => { :value => current_user.name ,:readonly => true }
-          = f.input :text, :required => true ,  :label => false, :placeholder => "Kommentar schreiben"
-        = f.actions do
-          = f.action :submit
-
-      -@project.comments.order("created_at DESC").each do |comment|
-        .alert.alert-info
-          = comment.created_at
-          -if comment.name
-            %b= comment.name + ": "
-          = comment.text
-    .span6
-      -# organization tools
-      %h3= t('project.organization')
-      -if @project.datetime
-        -#=render '/projects/datetime'
-      -if user_signed_in?
-        -#=render '/projects/datetime_suggestion'
-
-      -# sponsoring, crowdfounding, other features
-      %h3= t('project.support')
-
-      -# %p= t('project.under-construction')
-      
-      = form_for :sponsor_finder, :url => sponsor_finder_index_path, :html  => { :class => "formtastic form-inline", :method => :get} do |f|
+    .row-fluid
+      -#project chat
+      .span6
+        %h3= t('project.support')
         .well
-          %span.sponsors_near
-            = t('find_sponsors')
-          = f.label :radius, "Radius"
-          = f.text_field :radius, id: "radius", name: "sponsor_finder_radius"
-          = f.hidden_field :lat, value: @project.latitude, id: "lat"
-          = f.hidden_field :lng, value: @project.longitude, id: "lng"
-          = f.hidden_field :project_id, value: @project.id, id: "project_id"
-          = f.submit :class => "btn pull-right"
-          -# = link_to t('find_sponsors'), sponsor_finder_index_path(:lat => @project.latitude, :lng => @project.longitude), :class => "btn pull-right"
-
+          %h5 
+            Dieses Projekt wird gesponsort von:
+          %ul
+            %li
+              = link_to "Getränke Markt Meier"
+            %li 
+              = link_to "Curry22 Würstchenbude"
+          = link_to "Sponsor werden", projects_path, :class => "btn"
+        -# %p= t('project.under-construction')
+          
+        = semantic_form_for :sponsor_finder, :url => sponsor_finder_index_path, :html  => { :class => "formtastic form-inline", :method => :get} do |f|
+          .well
+            %h5
+              Sponsoren finden
+            = f.inputs do
+              = f.input :radius, :label => "im Umkreis von (in km)", :as => :select , :collection => [1,5,10]
+              = f.input :project_id , :as => :hidden , value: @project.id, id: "project_id"
+            = f.actions do
+              = f.action :submit, :label => "Suchen", :class => "btn"
+            -# = link_to t('find_sponsors'), sponsor_finder_index_path(:lat => @project.latitude, :lng => @project.longitude), :class => "btn pull-right"
+  
+        
+        
+      .span6
+        -# organization tools
+        %h3= t('project.organization')
+        .well
+          %h4= "Termine"
+          %ul
+            - @project.appointments.each do |appointment|
+              %li
+                = link_to appointment.description , project_appointment_path(@project,appointment)
+          = link_to "Neuen Termin finden", new_project_appointment_path(@project) , :class => "btn"
+        -# sponsoring, crowdfounding, other features
+        -@project.comments.order("created_at DESC").each do |comment|
+          .alert.alert-info
+            %h5 
+              vor
+              = distance_of_time_in_words_to_now(comment.created_at)
+              -if comment.name
+                von
+                %b= comment.name + ": "
+            %p
+              = comment.text
+        = semantic_form_for(@project.comments.build, :url => project_comments_path(@project), :html=> {:class => "form-fit"}) do |f|
+          .well
+            = f.inputs do
+              - if !user_signed_in?
+                = f.input :name, :required => true, :label => false, :placeholder => "Name"
+              - else
+                = f.input :name, :as => :hidden, :label => false, :input_html => { :value => current_user.name ,:readonly => true }
+              = f.input :text, :required => true ,  :label => false, :placeholder => "Kommentar schreiben"
+            = f.actions do
+              = f.action :submit, :label => "Kommentar schreiben"
+  
+        
+  .span12
+    %hr
+    .row-fluid
+      .span6
+        = link_to 'Projektbeschreibung bearbeiten', edit_project_path(@project), :class => "btn"
+        = link_to 'Zurück', projects_path, :class => "btn"

@@ -12,6 +12,10 @@ module ApplicationHelper
     end
   end
   
+  def nl2br(s)
+    s.gsub(/\n/, '<br>')
+  end
+  
   # Glyph Icons Helpers 
   def glyphicons(name)
     "<i class=\"" + name + "\"></i>".html_safe

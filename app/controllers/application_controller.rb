@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   helper_method :get_available_locales
 
   def get_available_locales
-    ['en', 'de']
+    ['de']
   end
 
   before_filter :request_location
