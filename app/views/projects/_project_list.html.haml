@@ -5,5 +5,5 @@
       = image_tag project.image.url(:thumb)
       %h4
         = image_tag 'http://www.google.com/intl/en_ALL/mapfiles/marker_green'+ letters.delete_at(0).to_s + '.png', :size => "16x16"
-        = link_to truncate(project.title,:length => 10), project
+        = link_to truncate(project.title,:length => 20), project
       -#%p= truncate(project.description , :length => 50 ,:separator => ' ')
