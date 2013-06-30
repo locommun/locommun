@@ -1,0 +1,5 @@
+= semantic_form_for resource, :url => project_appointments_path(@project) do |f|
+  = f.inputs do
+    = f.input :description, :label => "Terminbeschriebung"
+  = f.actions do
+    = f.action :submit , :label => "Termin finden"

@@ -1,0 +1,31 @@
+.well 
+  %h2
+    = resource.description
+  %i.icon-time
+  - if resource.datetime
+    "Termin festgelegt:"
+    = I18n.l resource.datetime, :format =>'%d. %B %Y - %H:%M'
+  - else
+    Termin wird gewählt
+.well
+  %h4 
+    = "Mögliche Termine: "
+  - if resource.date_time_suggestions.count <= 0
+    %p
+      keine Terminvorschläge eingetragen  
+  - else 
+    - resource.date_time_suggestions.each do |suggestion|
+      .suggestion
+        = I18n.l suggestion.datetime, :format =>'%d. %B %Y - %H:%M'
+        - if !current_user
+          -disabled=true
+        -else
+          - disabled= current_user.voted_on? suggestion
+        = link_to raw("<i class=\"icon-thumbs-up icon-white\"></i> "+ Random.rand(11).to_s), project_appointment_path(@project,resource),  :class => "btn btn-mini btn-success" + (disabled ? " disabled" : "")
+        = link_to raw("<i class=\"icon-thumbs-down icon-white\"></i> "+ Random.rand(11).to_s), project_appointment_path(@project,resource), :class => "btn btn-mini btn-danger" + (disabled ? " disabled" : "")
+  %h4 Neuen Termin vorschlagen 
+  = semantic_form_for resource.date_time_suggestions.build, :url => project_appointment_date_time_suggestions_path(@project,resource) do |f|
+    = f.inputs do
+      = f.input :datetime, :label => false
+    = f.actions do
+      = f.action :submit , :label => "Vorschlagen", :class => "btn"
